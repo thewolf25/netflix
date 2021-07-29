@@ -1,0 +1,30 @@
+<header>
+    <div class="netflixLogo">
+        <a id="logo" href="#home"><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true" alt="Logo Image"></a>
+    </div>
+    <nav class="main-nav">
+        <a routerLink="">Home</a>
+        <a *ngIf="isAdmin()" routerLink="/addFilm">Admin Dashboard</a>
+        <a target="_blank" href="https://codepen.io/cb2307/full/NzaOrm">Portfolio</a>
+    </nav>
+    <nav class="sub-nav">
+
+        <button type="button" (click)="showFavorite()" class="btn btn-sm text-white">
+                       Favorites <span class="badge badge-danger ml-2">{{countFavorite()}}</span>
+          </button>
+        <a routerLink="login" *ngIf="getUser() === null">Login</a>
+        <span (click)="signout()" *ngIf="getUser() !== null">hello {{getUser().username}}  <i class="fas fa-sign-out-alt hov " ></i> </span>
+
+
+        <div *ngIf="showFav" class="shadow-lg mb-5  rounded" style="position:absolute;float:left;width:300px;overflow-y: scroll; height:300px; background-color:#141414;border: 1.5px solid black">
+            <ul class="list-group" style="background-color:#141414;" *ngIf="countFavorite()>0">
+                <li class="list-group-item d-flex justify-content-between" style="background-color:#141414;" *ngFor="let item of  getFavorite()">
+                    <img src="assets/img/{{item.image | defaultPicture : 'default.jpg'}}" style="heigth:30px;width:30px;margin-right: 20px;">
+                    <h6>{{item.name}}</h6>
+                    <button class="btn btn-sm btn-danger" (click)="deleteFilm(item)">delete</button>
+                </li>
+            </ul>
+            <p *ngIf="countFavorite() == 0 " class="text-white p-3"> No favorite Selected !!!</p>
+        </div>
+    </nav>
+</header>

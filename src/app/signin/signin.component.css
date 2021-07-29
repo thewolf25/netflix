@@ -1,0 +1,14 @@
+.bg-custom {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btn-danger,
+.alert-danger {
+    background-color: #E10914;
+    color: white
+}
+
+.btn-danger:hover {
+    background-color: tomato;
+    border-color: tomato;
+}

@@ -1,0 +1,38 @@
+<form #filter='ngForm' class="col-6 m-auto p-5 bg-custom">
+    <div class="form-group">
+        <label for="filter">Fltred By  / Tri By</label>
+        <select class="form-control form-control-sm" #filterBy required='true' [(ngModel)]="filterValue" name="filterBy">
+            <option>langue</option>
+            <option>annee</option>
+            <option>genre</option>
+          </select>
+    </div>
+
+
+    <div class="form-group" *ngIf="filterValue === 'langue' ">
+        <label>Language</label>
+        <select class="form-control form-control-sm" #language required="genre.value=== '' && annee.value===''" ngModel name="langue">
+            <option *ngFor="let item of langue" > {{item}}</option>
+          </select>
+    </div>
+    <div class="form-group" *ngIf="filterValue === 'genre' ">
+        <label>Gender</label>
+        <select class="form-control form-control-sm" required="languge.value=== '' && annee.value===''" #gender required ngModel name="genre">
+            <option *ngFor="let item of genre" > {{item}}</option>
+          </select>
+    </div>
+
+    <div class="form-group" *ngIf="filterValue === 'annee' ">
+        <label>Year</label>
+        <select class="form-control form-control-sm" required="languge.value=== '' && genre.value===''" #year ngModel name="year">
+            <option *ngFor="let item of annee" > {{item}}</option>
+          </select>
+    </div>
+    <div class="text-center">
+        <button class="btn-sm btn-danger" [disabled]="!filter.valid" (click)="validate(filter.value)">Filter</button>
+        <button class="btn-sm btn-warning text-white ml-3" [disabled]="!(filterBy.value !== '')" (click)="trier(filterBy.value)">Trier</button>
+
+    </div>
+
+
+</form>

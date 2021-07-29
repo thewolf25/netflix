@@ -1,0 +1,7 @@
+header {
+    z-index: 9999999999;
+}
+
+.hov:hover {
+    opacity: 0.5;
+}

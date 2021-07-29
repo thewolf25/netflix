@@ -1,0 +1,16 @@
+<div class="flip-card ml-3">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="assets/img/{{product.image|defaultPicture:'default.jpg'}}" style="width:100%; height:100%" alt="Avatar">
+        </div>
+        <div class="flip-card-back" style="width:100%; height:100%">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description | shorten:90}}</p>
+            <button class="btn btn-warning" *ngIf="isAbonned()" (click)="addToFavorite()">Add to list</button>
+
+            <button *ngIf="isAdmin()" class="btn btn-sm btn-danger mr-2" (click)="deleteFilm()">delete </button>
+            <button *ngIf="isAdmin()" class="btn btn-sm btn-warning" [routerLink]="['update', product.id]">update</button>
+
+        </div>
+    </div>
+</div>

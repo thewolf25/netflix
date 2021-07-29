@@ -1,0 +1,8 @@
+.btn-danger {
+    background-color: #E10914;
+}
+
+.btn-danger:hover {
+    background-color: tomato;
+    border-color: tomato;
+}

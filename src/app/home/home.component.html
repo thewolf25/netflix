@@ -1,0 +1,6 @@
+<app-filter (filtterOption)="getFilterOption($event)" (sortBy)="getSortBy($event)"></app-filter>
+
+<div class="row d-flex justify-content-center ">
+
+    <app-product-details *ngFor="let product of getFilms() | filter: filterOption | tri: sortBy ; let i=index " [product]="product"></app-product-details>
+</div>

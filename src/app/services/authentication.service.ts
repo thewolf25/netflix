@@ -15,8 +15,13 @@ export class AuthenticationService {
   private users: Array<User> = [
     {"username":"admin" , "password":"admin" , "role":"admin"},
     {"username":"mehdi" , "password":"mehdi" , "role":"abonne"},
+    {"username":"nidhal" , "password":"nidhal" , "role":"abonne"},
     {"username":"omar" , "password":"omar" , "role":"abonne"},
+    {"username":"sabri" , "password":"sabri" , "role":"abonne"},
+    {"username":"imed" , "password":"imed" , "role":"abonne"},
   ]
+
+  
 
 
   constructor(){
